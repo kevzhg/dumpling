@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumpling Delight - Homemade Dumplings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Dumpling Delight</div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#order">Order Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Authentic Homemade Dumplings</h1>
+            <p>Handcrafted with love using traditional family recipes</p>
+            <a href="#order" class="btn btn-primary">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-subtitle">Fresh ingredients, authentic flavors</p>
+
+            <div class="menu-grid">
+                <div class="menu-item" data-id="pork" data-price="12.99">
+                    <div class="menu-item-image">🥟</div>
+                    <h3>Pork Dumplings</h3>
+                    <p>Classic pork and cabbage filling with ginger and green onions</p>
+                    <span class="price">$12.99 / dozen</span>
+                </div>
+
+                <div class="menu-item" data-id="chicken" data-price="12.99">
+                    <div class="menu-item-image">🥟</div>
+                    <h3>Chicken Dumplings</h3>
+                    <p>Tender chicken with shiitake mushrooms and sesame</p>
+                    <span class="price">$12.99 / dozen</span>
+                </div>
+
+                <div class="menu-item" data-id="veggie" data-price="11.99">
+                    <div class="menu-item-image">🥟</div>
+                    <h3>Vegetable Dumplings</h3>
+                    <p>Mixed vegetables with tofu, carrots, and cabbage</p>
+                    <span class="price">$11.99 / dozen</span>
+                </div>
+
+                <div class="menu-item" data-id="shrimp" data-price="14.99">
+                    <div class="menu-item-image">🥟</div>
+                    <h3>Shrimp Dumplings</h3>
+                    <p>Fresh shrimp with water chestnuts and bamboo shoots</p>
+                    <span class="price">$14.99 / dozen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Dumpling Delight! Our dumplings are made fresh daily using recipes passed down through generations. Each dumpling is carefully handcrafted with premium ingredients and wrapped with love.</p>
+                    <p>We believe in quality over quantity. That's why we prepare small batches to ensure every dumpling meets our high standards. Whether you prefer them steamed, pan-fried, or boiled, our dumplings are sure to bring joy to your table.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="order">
+        <div class="container">
+            <h2>Place Your Order</h2>
+            <p class="section-subtitle">Fill out the form below and we'll prepare your order</p>
+
+            <form id="order-form" class="order-form">
+                <!-- Customer Information -->
+                <div class="form-section">
+                    <h3>Customer Information</h3>
+
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Delivery Address *</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Order Selection -->
+                <div class="form-section">
+                    <h3>Select Your Dumplings</h3>
+
+                    <div class="order-items">
+                        <div class="order-item">
+                            <div class="item-info">
+                                <span class="item-name">Pork Dumplings</span>
+                                <span class="item-price">$12.99/dozen</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus" data-item="pork">-</button>
+                                <input type="number" class="qty-input" id="qty-pork" name="qty-pork" value="0" min="0" max="10" data-price="12.99">
+                                <button type="button" class="qty-btn plus" data-item="pork">+</button>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="item-info">
+                                <span class="item-name">Chicken Dumplings</span>
+                                <span class="item-price">$12.99/dozen</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus" data-item="chicken">-</button>
+                                <input type="number" class="qty-input" id="qty-chicken" name="qty-chicken" value="0" min="0" max="10" data-price="12.99">
+                                <button type="button" class="qty-btn plus" data-item="chicken">+</button>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="item-info">
+                                <span class="item-name">Vegetable Dumplings</span>
+                                <span class="item-price">$11.99/dozen</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus" data-item="veggie">-</button>
+                                <input type="number" class="qty-input" id="qty-veggie" name="qty-veggie" value="0" min="0" max="10" data-price="11.99">
+                                <button type="button" class="qty-btn plus" data-item="veggie">+</button>
+                            </div>
+                        </div>
+
+                        <div class="order-item">
+                            <div class="item-info">
+                                <span class="item-name">Shrimp Dumplings</span>
+                                <span class="item-price">$14.99/dozen</span>
+                            </div>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn minus" data-item="shrimp">-</button>
+                                <input type="number" class="qty-input" id="qty-shrimp" name="qty-shrimp" value="0" min="0" max="10" data-price="14.99">
+                                <button type="button" class="qty-btn plus" data-item="shrimp">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Details -->
+                <div class="form-section">
+                    <h3>Order Details</h3>
+
+                    <div class="form-group">
+                        <label for="order-type">Order Type *</label>
+                        <select id="order-type" name="order-type" required>
+                            <option value="">Select option</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="delivery">Delivery</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Preferred Time *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select time</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instructions">Special Instructions</label>
+                        <textarea id="instructions" name="instructions" rows="3" placeholder="Any allergies, preferences, or special requests..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="form-section order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="summary-items"></div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span id="order-total">$0.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">Place Order</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="confirmation-icon">✓</div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your order. We'll contact you shortly to confirm the details.</p>
+            <div id="confirmation-details"></div>
+            <button class="btn btn-primary" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Dumpling Delight</h4>
+                    <p>Authentic homemade dumplings made with love</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: hello@dumplingdelight.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Tue - Sun: 10 AM - 6 PM</p>
+                    <p>Monday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dumpling Delight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
