@@ -6,6 +6,11 @@ const summaryItems = document.getElementById('summary-items');
 const orderTotal = document.getElementById('order-total');
 const confirmationDetails = document.getElementById('confirmation-details');
 
+// EmailJS Configuration
+const EMAILJS_PUBLIC_KEY = 'CmObK95-fxF5ZnRd8';
+const EMAILJS_SERVICE_ID = 'service_e7epbb9';
+const EMAILJS_TEMPLATE_ID = 'template_0q923tm';
+
 // Menu items with prices
 const menuItems = {
     pork: { name: 'Homemade Pork Dumplings', price: 0.50 }
@@ -13,6 +18,9 @@ const menuItems = {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
     initQuantityControls();
     initFormValidation();
     setMinDate();
@@ -199,12 +207,17 @@ function processOrder() {
         : `${timeHour}:00 AM`;
 
     // Build confirmation details
+    const orderNumber = generateOrderNumber();
     let itemsList = orderData.items.map(item =>
         `${item.name} x ${item.quantity}`
     ).join('<br>');
 
+    let itemsListText = orderData.items.map(item =>
+        `${item.name} x ${item.quantity}`
+    ).join('\n');
+
     confirmationDetails.innerHTML = `
-        <p><strong>Order Number:</strong> #${generateOrderNumber()}</p>
+        <p><strong>Order Number:</strong> #${orderNumber}</p>
         <p><strong>Name:</strong> ${orderData.name}</p>
         <p><strong>Email:</strong> ${orderData.email}</p>
         <p><strong>Phone:</strong> ${orderData.phone}</p>
@@ -214,6 +227,29 @@ function processOrder() {
         <p><strong>Total:</strong> $${orderData.total.toFixed(2)}</p>
         ${orderData.instructions ? `<p><strong>Special Instructions:</strong> ${orderData.instructions}</p>` : ''}
     `;
+
+    // Send email via EmailJS
+    const emailParams = {
+        order_number: orderNumber,
+        from_name: orderData.name,
+        from_email: orderData.email,
+        phone: orderData.phone,
+        order_items: itemsListText,
+        total: `$${orderData.total.toFixed(2)}`,
+        date: formattedDate,
+        time: formattedTime,
+        order_type: orderData.orderType === 'delivery' ? 'Delivery' : 'Pickup',
+        address: orderData.orderType === 'delivery' ? orderData.address : 'In-store pickup',
+        instructions: orderData.instructions || 'None'
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams)
+        .then(() => {
+            console.log('Order email sent successfully');
+        })
+        .catch((error) => {
+            console.error('Failed to send order email:', error);
+        });
 
     // Show modal
     showModal();
@@ -225,7 +261,7 @@ function processOrder() {
     });
     updateOrderSummary();
 
-    // Log order (in real app, this would be sent to server)
+    // Log order
     console.log('Order submitted:', orderData);
 }
 
