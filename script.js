@@ -8,10 +8,7 @@ const confirmationDetails = document.getElementById('confirmation-details');
 
 // Menu items with prices
 const menuItems = {
-    pork: { name: 'Pork Dumplings', price: 12.99 },
-    chicken: { name: 'Chicken Dumplings', price: 12.99 },
-    veggie: { name: 'Vegetable Dumplings', price: 11.99 },
-    shrimp: { name: 'Shrimp Dumplings', price: 14.99 }
+    pork: { name: 'Homemade Pork Dumplings', price: 0.50 }
 };
 
 // Initialize
