@@ -88,8 +88,8 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=1600') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1600&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -296,17 +296,20 @@ select:focus {
 .quantity-control {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .qty-btn {
-    width: 35px;
+    min-width: 35px;
     height: 35px;
+    padding: 0 10px;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
     background: #d4533a;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -316,6 +319,10 @@ select:focus {
 
 .qty-btn:hover {
     background: #b8432d;
+}
+
+.qty-btn.minus {
+    border-radius: 5px;
 }
 
 .qty-input {

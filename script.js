@@ -34,10 +34,30 @@ function initQuantityControls() {
             const itemId = btn.dataset.item;
             const input = document.getElementById(`qty-${itemId}`);
             const currentValue = parseInt(input.value);
-            if (currentValue < 10) {
-                input.value = currentValue + 1;
-                updateOrderSummary();
-            }
+            input.value = currentValue + 1;
+            updateOrderSummary();
+        });
+    });
+
+    // Plus 5 buttons
+    document.querySelectorAll('.qty-btn.plus-5').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const itemId = btn.dataset.item;
+            const input = document.getElementById(`qty-${itemId}`);
+            const currentValue = parseInt(input.value);
+            input.value = currentValue + 5;
+            updateOrderSummary();
+        });
+    });
+
+    // Plus 10 buttons
+    document.querySelectorAll('.qty-btn.plus-10').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const itemId = btn.dataset.item;
+            const input = document.getElementById(`qty-${itemId}`);
+            const currentValue = parseInt(input.value);
+            input.value = currentValue + 10;
+            updateOrderSummary();
         });
     });
 
@@ -59,7 +79,6 @@ function initQuantityControls() {
         input.addEventListener('change', () => {
             let value = parseInt(input.value);
             if (isNaN(value) || value < 0) value = 0;
-            if (value > 10) value = 10;
             input.value = value;
             updateOrderSummary();
         });
